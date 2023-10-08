@@ -1,0 +1,37 @@
+SELECT * FROM [dbo].[tblEmployees6];
+
+
+
+SELECT LEFT('ABCDEF', 3)
+
+SELECT LEFT('ABCDEF', 4)
+
+SELECT RIGHT('ABCDEF', 3)
+
+SELECT CHARINDEX('@','sara@aaa.com')
+
+SELECT SUBSTRING('sara@aaa.com', 6, 7)
+
+SELECT SUBSTRING('pam@bbb.com', 6, 7)
+
+SELECT SUBSTRING('pam@bbb.com', 5, 7)
+
+SELECT SUBSTRING('pam@bbb.com', CHARINDEX('@', 'sara@aaa.com'), 7)
+
+SELECT SUBSTRING('pam@bbb.com', CHARINDEX('@', 'pam@bbb.com') + 1, 7)
+
+SELECT SUBSTRING('pam@bbb.com', CHARINDEX('@', 'pam@bbb.com') + 1, 
+LEN('pam@bbb.com') - CHARINDEX('@', 'pam@bbb.com'))
+
+SELECT SUBSTRING(Email, CHARINDEX('@', Email) + 1, 
+LEN(Email) - CHARINDEX('@', Email)) AS EmailDomain,
+COUNT(Email) AS Total
+FROM tblEmployees6
+GROUP BY SUBSTRING(Email, CHARINDEX('@', Email) + 1, 
+LEN(Email) - CHARINDEX('@', Email));
+
+
+
+
+
+
